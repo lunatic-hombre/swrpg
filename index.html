@@ -26,6 +26,7 @@ function rollDice() {
 function getRollAsString(query, sides) {
 	var accumulator = '';
 	var iterations = document.querySelector(query).value;
+	document.querySelector(query).value = null;
 	for (i=0; i < iterations; i++) {
 		var index = Math.floor(Math.random()*sides.length);
 		accumulator += sides[index];
@@ -113,13 +114,13 @@ body > div {
 <body>
 
 <div id="dice-form">
-	<input class="ability diamond" type="number" min="0" max="9" value="0" />
-	<input class="proficiency hexagon" type="number" min="0" max="9" value="0" />
-	<input class="boost" type="number" min="0" max="9" value="0" />
+	<input class="ability diamond" type="number" min="0" max="9" />
+	<input class="proficiency hexagon" type="number" min="0" max="9" />
+	<input class="boost" type="number" min="0" max="9" />
 	<br />
-	<input class="difficulty diamond" type="number" min="0" max="9" value="0" />
-	<input class="setback" type="number" min="0" max="9" value="0" />
-	<input class="danger hexagon" type="number" min="0" max="9" value="0" />
+	<input class="difficulty diamond" type="number" min="0" max="9" />
+	<input class="setback" type="number" min="0" max="9" />
+	<input class="danger hexagon" type="number" min="0" max="9" />
 </div>
 <div><button class="roll-button" onclick="rollDice()">Roll!</button></div>
 <div id="diceResult"></div>
