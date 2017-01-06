@@ -60,9 +60,14 @@ body {
 }
 #dice-form input[type='number'] {
 	border: none;
-	padding: 1em 0.5em;
+	padding: 1em 0.3em;
 	text-align: center;
 	color: white;
+	margin: 0.3em;
+}
+input:focus,
+button:focus {
+    outline: none;
 }
 body > div {
 	margin: 1em;
@@ -85,7 +90,6 @@ body > div {
 }
 .boost {
 	background-color: lightBlue;
-	padding: 0.75em 0.3em !important;
 }
 .difficulty {
 	background-color: purple;
@@ -93,7 +97,6 @@ body > div {
 .setback {
 	background-color: black;
 	border: 1px solid #444 !important;
-	padding: 0.75em 0.3em !important;
 }
 .danger {
 	background-color: red;
@@ -113,6 +116,7 @@ body > div {
 	<input class="ability diamond" type="number" min="0" max="9" value="0" />
 	<input class="proficiency hexagon" type="number" min="0" max="9" value="0" />
 	<input class="boost" type="number" min="0" max="9" value="0" />
+	<br />
 	<input class="difficulty diamond" type="number" min="0" max="9" value="0" />
 	<input class="setback" type="number" min="0" max="9" value="0" />
 	<input class="danger hexagon" type="number" min="0" max="9" value="0" />
