@@ -53,7 +53,7 @@ function interpretRoll(rollString) {
 	}
 	return (success >= 0 ? (success == 0 ? '' : success+' success ') : -success+' failure ')
 		+ (advantage >= 0 ? (advantage == 0 ? '' : advantage+' advantage ') : -advantage+' threat ')
-		+ (triumph >= 0 ? (triumph == 0 ? '' : triumph+' triumph') : -triumph+' despair');
+		+ (triumph >= 0 ? (triumph == 0 || success < 0 ? '' : triumph+' triumph') : success < 0 ? -triumph+' despair' : '');
 }
 
 </script>
