@@ -13,14 +13,18 @@ var dangerSides = ['tt','t','tt','t','tf','f','tf','f','ff','fy','ff',''];
 var setbackSides = ['f','t','f','t','',''];
 
 function rollDice() {
-	var accumulator = '';
-	accumulator += getRollAsString('#dice-form > .ability', abilitySides);
-	accumulator += getRollAsString('#dice-form > .proficiency', proficiencySides);
-	accumulator += getRollAsString('#dice-form > .difficulty', difficultySides);
-	accumulator += getRollAsString('#dice-form > .danger', dangerSides);
-	accumulator += getRollAsString('#dice-form > .boost', boostSides);
-	accumulator += getRollAsString('#dice-form > .setback', setbackSides);
-	document.getElementById('diceResult').textContent = interpretRoll(accumulator);
+	document.getElementById('dice-form').className = 'shaking';
+	setTimeout(function() {
+		var accumulator = '';
+		accumulator += getRollAsString('#dice-form > .ability', abilitySides);
+		accumulator += getRollAsString('#dice-form > .proficiency', proficiencySides);
+		accumulator += getRollAsString('#dice-form > .difficulty', difficultySides);
+		accumulator += getRollAsString('#dice-form > .danger', dangerSides);
+		accumulator += getRollAsString('#dice-form > .boost', boostSides);
+		accumulator += getRollAsString('#dice-form > .setback', setbackSides);
+		document.getElementById('dice-form').className = '';
+		document.getElementById('diceResult').textContent = interpretRoll(accumulator);
+	}, 1000);
 }
 
 function getRollAsString(query, sides) {
@@ -54,10 +58,14 @@ function interpretRoll(rollString) {
 
 </script>
 <style>
+
 body {
 	background-color: #222;
 	font-family: 'Russo One', sans-serif;
 	color: white;
+}
+#dice-form {
+	position: relative;
 }
 #dice-form input[type='number'] {
 	border: none;
@@ -109,6 +117,18 @@ body > div {
 	border: none;
 	padding: 0.5em 1em;
 	font-family: 'Russo One', sans-serif;
+}
+.shaking {
+    animation-name: shakeAnimation;
+    animation-duration: 0.2s;
+    animation-iteration-count: 5;
+}
+@keyframes shakeAnimation {
+    0%   {right:0px;}
+    25%  {right:10px;}
+    50%  {right:0px;}
+    75%  {right:-10px;}
+    100% {right:0px;}
 }
 </style>
 </head>
